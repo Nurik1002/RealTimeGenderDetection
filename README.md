@@ -1,65 +1,62 @@
-# RealTimeGenderDetection
+# Real-Time Gender Detection
 
-This is a real-time gender detection program built with Python and OpenCV. It uses a convolutional neural network (CNN) to classify the gender of a person as male or female in real-time video streams.
+Real-Time Gender Detection is a project that uses computer vision techniques to detect the gender of a person in real-time. The project uses a Convolutional Neural Network (CNN) to detect gender with an accuracy of 0.9520.
 
-## Model Architecture
+# Features
 
-The model architecture is as follows:
+Real-time detection of gender in video streams or from a webcam 
 
-Conv2D(filters=4, kernel_size=(3,3), padding="same", activation="relu"), # 4 224 224
-BatchNormalization(),
-MaxPool2D((2,2)), # 4 112 112
-Dropout(0.2),
+Built using OpenCV, Keras, and TensorFlow
 
-Conv2D(filters=8, kernel_size=(3,3), padding="same", activation="relu"), # 8 112 112
-BatchNormalization(),
-MaxPool2D((2,2)), # 18 56 56
-Dropout(0.2),
+Easy to use and integrate with other projects
 
-Conv2D(filters=16, kernel_size=(3,3), padding="same", activation="relu"), # 16 56 56
-BatchNormalization(),
-MaxPool2D((2,2)), # 16 28 28
-Dropout(0.2),
+CNN model architecture for gender detection
 
-Conv2D(filters=32, kernel_size=(3,3), padding="same", activation="relu"), # 32 56 56
-BatchNormalization(),
-MaxPool2D((2,2)), # 132 28 28
-Dropout(0.2),
+# Model Architecture
+The model architecture used for gender detection is a CNN that consists of the following layers:
 
-Conv2D(filters=64, kernel_size=(3,3), padding="same", activation="relu"), # 64 56 56
-BatchNormalization(),
-MaxPool2D((2,2)), # 64 28 28
-Dropout(0.2),
+- Conv2D layer with 4 filters of size 3x3, padding "same", and ReLU activation
+- BatchNormalization layer
+- MaxPool2D layer with pool size of 2x2
+- Dropout layer with 0.2 probability
+- Conv2D layer with 8 filters of size 3x3, padding "same", and ReLU activation
+- BatchNormalization layer
+- MaxPool2D layer with pool size of 2x2
+- Dropout layer with 0.2 probability
+- Conv2D layer with 16 filters of size 3x3, padding "same", and ReLU activation
+- BatchNormalization layer
+- MaxPool2D layer with pool size of 2x2
+- Dropout layer with 0.2 probability
+- Conv2D layer with 32 filters of size 3x3, padding "same", and ReLU activation
+- BatchNormalization layer
+- MaxPool2D layer with pool size of 2x2
+- Dropout layer with 0.2 probability
+- Conv2D layer with 64 filters of size 3x3, padding "same", and ReLU activation
+- BatchNormalization layer
+- MaxPool2D layer with pool size of 2x2
+- Dropout layer with 0.2 probability
+- Flatten layer
+- Dense layer with 128 units and ReLU activation
+- BatchNormalization layer
+- Dropout layer with 0.2 probability
+- Dense layer with 10 units and ReLU activation
+- BatchNormalization layer
+- Dropout layer with 0.2 probability
+- Dense layer with 2 units and sigmoid activation for binary classification (male vs. female)
+# Installation
+Clone the repository:  `git clone https://github.com/Nurik1002/RealTimeGenderDetection.git`
 
-Flatten(),
+Navigate to the project directory: `cd RealTimeGenderDetection`
 
-Dense(128, activation="relu"),
-BatchNormalization(),
-Dropout(0.2),
+Install the dependencies: `pip install -r requirements.txt`
 
-Dense(10, activation="relu"),
-BatchNormalization(),
-Dropout(0.2),
+# Usage
+To detect gender in real-time from a webcam:
 
-Dense(2, activation="sigmoid")
+`python detect_gender_video.py`
 
+To detect gender in real-time from a video stream:
 
-## Accuracy
+`python detect_gender_video.py --stream <stream_url>`
 
-The model achieved an accuracy of 95.20%.
-
-## Dependencies
-
-This program requires the following dependencies:
-
-* OpenCV
-* TensorFlow
-* NumPy
-
-## How to Use
-
-To use this program, first clone this repository to your local machine. Then, install the dependencies listed above.
-
-To run the program, execute the following command:
-
-`
+In the template above, be sure to replace <stream_url> with the actual URL of the video stream you want to use.
